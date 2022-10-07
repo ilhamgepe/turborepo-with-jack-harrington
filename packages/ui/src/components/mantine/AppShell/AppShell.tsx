@@ -83,7 +83,7 @@ export const AppShell = ({ title, children, navLinks }: AppShellProps) => {
           }
           navbar={
             <Navbar
-              p="md"
+              p="xs"
               hiddenBreakpoint="sm"
               hidden={!opened}
               width={{ sm: 200, lg: 300 }}

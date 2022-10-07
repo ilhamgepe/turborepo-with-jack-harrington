@@ -1,19 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Button, AppShell, NavLink } from "ui";
+import { AppShell, NavLink } from "ui";
 
 const navLinks: NavLink[] = [
   {
-    label: "name 1",
+    label: "Home",
     path: "/",
   },
   {
-    label: "name 2",
-    path: "/2",
-  },
-  {
-    label: "name 3",
-    path: "/3",
+    label: "Playlist",
+    path: "http://localhost:3001/playlist",
   },
 ];
 
