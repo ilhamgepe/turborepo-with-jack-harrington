@@ -16,6 +16,7 @@ import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 import { useState } from "react";
 import { ToggleColorScheme } from "../Button/ToogleColorScheme";
 import { MainLink } from "./MainLink";
+import { useStore } from "store";
 
 export type AppShellProps = {
   title: string;
@@ -29,6 +30,8 @@ export type NavLink = {
 };
 
 export const AppShell = ({ title, children, navLinks }: AppShellProps) => {
+  const movies = useStore((state) => state.movies);
+
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -77,7 +80,10 @@ export const AppShell = ({ title, children, navLinks }: AppShellProps) => {
                     {title}
                   </Text>
                 </Box>
-                <ToggleColorScheme />
+                <Box sx={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <ToggleColorScheme />
+                  <Text size={"xl"}>{movies.length} selected</Text>
+                </Box>
               </div>
             </Header>
           }

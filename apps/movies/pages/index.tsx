@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useStore } from "store";
 import { AppShell, NavLink } from "ui";
+import MoviesContent from "../src/components/movies/MoviesContent";
 
 const navLinks: NavLink[] = [
   {
@@ -9,11 +11,14 @@ const navLinks: NavLink[] = [
   },
   {
     label: "Playlist",
-    path: "http://localhost:3001/playlist",
+    path: "http://localhost:3001",
   },
 ];
 
 const Home: NextPage = () => {
+  const { movies } = useStore();
+  console.log(movies);
+
   return (
     <div>
       <Head>
@@ -23,7 +28,7 @@ const Home: NextPage = () => {
       </Head>
 
       <AppShell title="Movies" navLinks={navLinks}>
-        <p>hello there</p>
+        <MoviesContent />
       </AppShell>
     </div>
   );
